@@ -1,0 +1,9 @@
+{
+    "name": "Jestlander",
+    "version_number": "1.0.0",
+    "website_url": "https://github.com/RaptureAwaits/lc-jestlander",
+    "description": "Replaces Jester windup and scream noises with that bit from hit song Highlander by Lost Horizon.",
+    "dependencies": [
+        "BepInEx-BepInExPack-5.4.2100"
+    ]
+}
