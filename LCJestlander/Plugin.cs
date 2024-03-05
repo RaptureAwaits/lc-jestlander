@@ -11,7 +11,7 @@ namespace LCJestlander {
     public class JestlanderBase : BaseUnityPlugin {
 		private const string mod_guid = "raptureawaits.jestlander";
 		private const string mod_name = "Jestlander";
-		private const string mod_version = "1.0.0";
+		private const string mod_version = "1.1.0";
 
 		internal static JestlanderBase instance;
 		internal static ManualLogSource modlog;
@@ -27,7 +27,7 @@ namespace LCJestlander {
 			if (instance == null) {
 				instance = this;
 			}
-			modlog = BepInEx.Logging.Logger.CreateLogSource(mod_guid + "_base");
+			modlog = BepInEx.Logging.Logger.CreateLogSource("Jestlander");
 
 			string mod_dir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 			new_sounds = AssetBundle.LoadFromFile(Path.Combine(mod_dir, "jestlander_sounds"));
@@ -37,7 +37,7 @@ namespace LCJestlander {
 			}
 			
 			windup_audio = new_sounds.LoadAssetWithSubAssets<AudioClip>("assets\\audio\\windup.wav");
-			pop_audio = new_sounds.LoadAssetWithSubAssets<AudioClip>("assets\\audio\\silence.wav");
+			pop_audio = new_sounds.LoadAssetWithSubAssets<AudioClip>("assets\\audio\\pop.wav");
 			scream_audio = new_sounds.LoadAssetWithSubAssets<AudioClip>("assets\\audio\\scream.wav");
 			
 			harmony.PatchAll(typeof(Patches.JesterAIPatch));
@@ -58,12 +58,16 @@ namespace LCJestlander.Patches {
 			if (pop_replace != null && pop_replace.Length > 0) {
 				AudioClip _ = pop_replace[0];
 				___popUpSFX = _;
+			} else {
+				modlog.LogError("Failed to load pop replacement audio data from extracted assets.");
 			}
 
 			AudioClip[] scream_replace = JestlanderBase.scream_audio;
 			if (scream_replace != null && scream_replace.Length > 0) {
 				AudioClip _ = scream_replace[0];
 				___screamingSFX = _;
+			} else {
+				modlog.LogError("Failed to load scream replacement audio data from extracted assets.");
 			}
 		}
 
@@ -74,7 +78,7 @@ namespace LCJestlander.Patches {
 			if (windup_replace != null && windup_replace.Length > 0) {
 				AudioClip windup_clip = windup_replace[0];
 
-				float second_offset = windup_clip.length - ___popUpTimer;
+				float second_offset = windup_clip.length - 5f - ___popUpTimer;
 				int sample_offset = (int)(second_offset / windup_clip.length * windup_clip.samples);
 
 				int trim_samples = windup_clip.samples - sample_offset;
@@ -86,6 +90,9 @@ namespace LCJestlander.Patches {
 				cropped_windup.SetData(samples, 0);
 				
 				___popGoesTheWeaselTheme = cropped_windup;
+				modlog.LogInfo($"Windup length: {___popUpTimer}, clip offset: {second_offset}, clip length: {cropped_windup.length}");
+			} else {
+				modlog.LogError("Failed to load windup replacement audio data from extracted assets.");
 			}
 		}
 	}
