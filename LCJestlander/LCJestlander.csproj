@@ -1,9 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFramework>netstandard2.1</TargetFramework>
-		<AssemblyName>LCJestlander</AssemblyName>
+		<AssemblyName>Jestlander</AssemblyName>
 		<Description>Replaces Jester windup and scream noises with that bit from hit song Highlander by Lost Horizon.</Description>
-		<Version>1.0.0</Version>
+		<Version>1.2.0</Version>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<LangVersion>latest</LangVersion>
 	</PropertyGroup>
@@ -17,6 +17,7 @@
 		
 		<Reference Include="Assembly-CSharp" HintPath="D:\SteamLibrary\steamapps\common\Lethal Company\Lethal Company_Data\Managed\UnityEngine.dll" Publicize="true" />
 		<Reference Include="Assembly-CSharp" HintPath="D:\SteamLibrary\steamapps\common\Lethal Company\Lethal Company_Data\Managed\UnityEngine.CoreModule.dll" Publicize="true" />
+		<Reference Include="Assembly-CSharp" HintPath="D:\SteamLibrary\steamapps\common\Lethal Company\Lethal Company_Data\Managed\Unity.Netcode.Runtime.dll" Publicize="true" />
 		<Reference Include="Assembly-CSharp" HintPath="D:\SteamLibrary\steamapps\common\Lethal Company\Lethal Company_Data\Managed\Assembly-CSharp.dll" Publicize="true" />
 		<Reference Include="Assembly-CSharp" HintPath="C:\Users\frede\AppData\Roaming\Thunderstore Mod Manager\DataFolder\LethalCompany\profiles\WOAH2\BepInEx\core\BepInEx.dll" Publicize="true" />
 		<Reference Include="Assembly-CSharp" HintPath="C:\Users\frede\AppData\Roaming\Thunderstore Mod Manager\DataFolder\LethalCompany\profiles\WOAH2\BepInEx\core\0Harmony.dll" Publicize="true" />
