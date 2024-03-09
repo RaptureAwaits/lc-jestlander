@@ -15,12 +15,12 @@
 		<PackageReference Include="UnityEngine.Modules" Version="2022.3.9" IncludeAssets="compile" />
 		<PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.1" PrivateAssets="all" />
 		
-		<Reference Include="Assembly-CSharp" HintPath="D:\SteamLibrary\steamapps\common\Lethal Company\Lethal Company_Data\Managed\UnityEngine.dll" Publicize="true" />
-		<Reference Include="Assembly-CSharp" HintPath="D:\SteamLibrary\steamapps\common\Lethal Company\Lethal Company_Data\Managed\UnityEngine.CoreModule.dll" Publicize="true" />
-		<Reference Include="Assembly-CSharp" HintPath="D:\SteamLibrary\steamapps\common\Lethal Company\Lethal Company_Data\Managed\Unity.Netcode.Runtime.dll" Publicize="true" />
-		<Reference Include="Assembly-CSharp" HintPath="D:\SteamLibrary\steamapps\common\Lethal Company\Lethal Company_Data\Managed\Assembly-CSharp.dll" Publicize="true" />
-		<Reference Include="Assembly-CSharp" HintPath="C:\Users\frede\AppData\Roaming\Thunderstore Mod Manager\DataFolder\LethalCompany\profiles\WOAH2\BepInEx\core\BepInEx.dll" Publicize="true" />
-		<Reference Include="Assembly-CSharp" HintPath="C:\Users\frede\AppData\Roaming\Thunderstore Mod Manager\DataFolder\LethalCompany\profiles\WOAH2\BepInEx\core\0Harmony.dll" Publicize="true" />
+		// Complete absolute paths to following files
+		<Reference Include="Assembly-CSharp" HintPath="...\steamapps\common\Lethal Company\Lethal Company_Data\Managed\UnityEngine.dll" Publicize="true" />
+		<Reference Include="Assembly-CSharp" HintPath="...\steamapps\common\Lethal Company\Lethal Company_Data\Managed\UnityEngine.CoreModule.dll" Publicize="true" />
+		<Reference Include="Assembly-CSharp" HintPath="...\steamapps\common\Lethal Company\Lethal Company_Data\Managed\Assembly-CSharp.dll" Publicize="true" />
+		<Reference Include="Assembly-CSharp" HintPath="...\BepInEx\core\BepInEx.dll" Publicize="true" />
+		<Reference Include="Assembly-CSharp" HintPath="...\BepInEx\core\0Harmony.dll" Publicize="true" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
